@@ -26,4 +26,9 @@ for i in range(len(df)):
 df = df.sort_values(by=['Priority index', 'Time'])
 df.to_csv('test3.csv',index=False)
 
-
+'''
+input format:
+d is dictionary of priorities taken from input
+input22.csv is the csv file made
+df is the final output that con be used
+'''
