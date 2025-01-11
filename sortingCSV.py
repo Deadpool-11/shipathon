@@ -2,7 +2,7 @@ d={
     "CLASS":0,
     "LAB":1,
     "TUT":2,
-    "DEBSOC"    :3,
+    "DEBSOC":3,
     "QC":4,
     "SM"    :5,
     "DRAMA" :6,
@@ -14,6 +14,8 @@ d={
     "PFC":12,
     "FACC":13,
     "RDV":14,
+    "SEMINAR":15,
+    "OTHER":16,
 }
 
 import pandas as pd
