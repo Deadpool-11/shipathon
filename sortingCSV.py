@@ -25,7 +25,7 @@ df=pd.read_csv('input22.csv')
 for i in range(len(df)):
     if(df['Type'][i] in d):
         df['Priority index'][i]=d[df['Type'][i]]
-df = df.sort_values(by=['Priority index', 'Time'])
+df = df.sort_values(by=['Date','Priority index', 'Time'])
 df.to_csv('test3.csv',index=False)
 
 '''

@@ -1,6 +1,7 @@
 import streamlit as st
 import altair as alt
 import pandas as pd
+
 st.set_page_config(page_title="EventConnect", page_icon="📅", layout="wide")
 
 """
@@ -8,8 +9,6 @@ input: csv1(priority sorted) is df1 and csv2(time sorted) is df2 and d
 output: calendar
 extra need: all csv time in that format..... 24 hour format
 """
-
-
 
 # Center-align the title using HTML and CSS
 st.markdown(
@@ -78,12 +77,22 @@ def create_block(vertical_lines, links):
 
 
 df1 = pd.read_csv("priority_sorted.csv")
+# Read user input data
+user_input_df = pd.read_csv("user_input.csv")
+
+# Append user input data to df1
+df3 = pd.concat([df1, user_input_df], ignore_index=True)
+
 # df2 = pd.read_csv("time_sorted.csv")
-index=df1['Priority index'][0]
+flag=0
 vertical_lines=[]
 links=[]
 texted=[]
 for i in range(len(df1)):
+  if df1['Date'][i]=='':  #have to fill todays date
+    if flag==0:
+        index=df1['Priority index'][i]
+        flag=1
     if df1['Priority index'][i]==index:
         vertical_lines.append(df1['Time'][i])
         links.append(df1['Link'][i])
@@ -97,11 +106,13 @@ for i in range(len(df1)):
             with right:
                 st.write(df1['Type'][i-1])
                 for i in range(len(texted)):
-                    st.write(1,". [{texted[i]}]({links[i]})")
+                    st.write(i+1,". [{texted[i]}]({links[i]})")
 
 
 df2=pd.read_csv("time_sorted.csv")
+#Here to write the date input..
 #Here to write last 2 special things
+
 
 
                 
