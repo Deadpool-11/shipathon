@@ -4,11 +4,11 @@ import pandas as pd
 
 st.set_page_config(page_title="EventConnect", page_icon="📅", layout="wide")
 
-"""
-input: csv1(priority sorted) is df1 and csv2(time sorted) is df2 and d
-output: calendar
-extra need: all csv time in that format..... 24 hour format
-"""
+# """
+# input: csv1(priority sorted) is df1 and csv2(time sorted) is df2 and d
+# output: calendar
+# extra need: all csv time in that format..... 24 hour format
+# """
 
 # Center-align the title using HTML and CSS
 st.markdown(
